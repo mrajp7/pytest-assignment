@@ -1,0 +1,262 @@
+{
+    "type": "object",
+    "properties": {
+        "_index": {
+            "type": "string"
+        },
+        "_id": {
+            "type": "string"
+        },
+        "_score": {
+            "type": "number"
+        },
+        "_source": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "customer_first_name": {
+                    "type": "string"
+                },
+                "customer_full_name": {
+                    "type": "string"
+                },
+                "customer_gender": {
+                    "enum": [
+                        "MALE",
+                        "FEMALE"
+                    ]
+                },
+                "customer_id": {
+                    "type": "number"
+                },
+                "customer_last_name": {
+                    "type": "string"
+                },
+                "customer_phone": {
+                    "type": "string"
+                },
+                "day_of_week": {
+                    "enum": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                        "Sunday"
+                    ]
+                },
+                "day_of_week_i": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 6
+                },
+                "email": {
+                    "type": "string",
+                    "format": "email"
+                },
+                "manufacturer": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "order_date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "order_id": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "base_price": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "discount_percentage": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 100
+                            },
+                            "quantity": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "manufacturer": {
+                                "type": "string"
+                            },
+                            "tax_amount": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "product_id": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "category": {
+                                "type": "string"
+                            },
+                            "sku": {
+                                "type": "string"
+                            },
+                            "taxless_price": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "unit_discount_amount": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "min_price": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "_id": {
+                                "type": "string"
+                            },
+                            "discount_amount": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "created_on": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "product_name": {
+                                "type": "string"
+                            },
+                            "price": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "taxful_price": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "base_unit_price": {
+                                "type": "number",
+                                "minimum": 0
+                            }
+                        }
+                    }
+                },
+                "sku": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "taxful_total_price": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "taxless_total_price": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "total_quantity": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "total_unique_products": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "type": {
+                    "enum": [
+                        "order"
+                    ]
+                },
+                "user": {
+                    "type": "string"
+                },
+                "geoip": {
+                    "type": "object",
+                    "properties": {
+                        "country_iso_code": {
+                            "type": "string"
+                        },
+                        "location": {
+                            "type": "object",
+                            "properties": {
+                                "lon": {
+                                    "type": "number"
+                                },
+                                "lat": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "lat",
+                                "lon"
+                            ]
+                        },
+                        "region_name": {
+                            "type": "string"
+                        },
+                        "continent_name": {
+                            "type": "string"
+                        },
+                        "city_name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "country_iso_code",
+                        "location",
+                        "continent_name"
+                    ]
+                },
+                "event": {
+                    "type": "object",
+                    "properties": {
+                        "dataset": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "geoip",
+                "user",
+                "type",
+                "total_unique_products",
+                "total_quantity",
+                "taxless_total_price",
+                "taxful_total_price",
+                "sku",
+                "products",
+                "order_id",
+                "order_date",
+                "manufacturer",
+                "email",
+                "day_of_week_i",
+                "day_of_week",
+                "customer_phone",
+                "customer_last_name",
+                "customer_id",
+                "customer_gender",
+                "customer_full_name",
+                "customer_first_name",
+                "currency",
+                "category"
+            ]
+        }
+    },
+    "required": [
+        "_source"
+    ]
+}
